@@ -1,0 +1,115 @@
+<html>
+<head>
+	<script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+
+<script>
+
+var appId = "4f7b433509b6025804000002";
+var appSignature = "dd2d41b69ac01b80f443f5b6cf06096d457f82bd";
+/*
+var appId;
+var appSignature;
+//android
+if (navigator.userAgent.match(/Android/i)) {
+	appId = "4f7b433509b6025804000002";
+	appSignature = "dd2d41b69ac01b80f443f5b6cf06096d457f82bd";
+}
+//ios
+else if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+	appId = "4f21c409cd1cb2fb7000001b";
+	appSignature = "92e2de2fd7070327bdeb54c15a5295309c6fcd2d";
+}
+*/
+
+document.addEventListener("deviceready", function(){
+	
+	window.chartboost.setUp(appId, appSignature);
+	
+	//
+	window.chartboost.onInterstitialAdPreloaded = function(location) {
+		alert('onInterstitialAdPreloaded: ' + location);
+	};
+	window.chartboost.onInterstitialAdLoaded = function(location) {
+		alert('onInterstitialAdLoaded: ' + location);
+	};
+	window.chartboost.onInterstitialAdShown = function(location) {
+		alert('onInterstitialAdShown: ' + location);
+	};
+	window.chartboost.onInterstitialAdHidden = function(location) {
+		alert('onInterstitialAdHidden: ' + location);
+	};
+	//
+	window.chartboost.onMoreAppsAdPreloaded = function(location) {
+		alert('onMoreAppsAdPreloaded: ' + location);
+	};
+	window.chartboost.onMoreAppsAdLoaded = function(location) {
+		alert('onMoreAppsAdLoaded: ' + location);
+	};
+	window.chartboost.onMoreAppsAdShown = function(location) {
+		alert('onMoreAppsAdShown: ' + location);
+	};
+	window.chartboost.onMoreAppsAdHidden = function(location) {
+		alert('onMoreAppsAdHidden: ' + location);
+	};
+	//
+	window.chartboost.onRewardedVideoAdPreloaded = function(location) {
+		alert('onRewardedVideoAdPreloaded: ' + location);
+	};
+	window.chartboost.onRewardedVideoAdLoaded = function(location) {
+		alert('onRewardedVideoAdLoaded: ' + location);
+	};
+	window.chartboost.onRewardedVideoAdShown = function(location) {
+		alert('onRewardedVideoAdShown: ' + location);
+	};
+	window.chartboost.onRewardedVideoAdHidden = function(location) {
+		alert('onRewardedVideoAdHidden: ' + location);
+	};
+	window.chartboost.onRewardedVideoAdCompleted = function(location) {
+		alert('onRewardedVideoAdCompleted: ' + location);
+	};
+}, false);
+	
+/*
+location parameter:
+'Default' - Supports legacy applications that only have one "Default" location
+'Startup' - Initial startup of game.
+'Home Screen' - Home screen the player first sees.
+'Main Menu' - Menu that provides game options.
+'Game Screen' - Game screen where all the magic happens.
+'Achievements' - Screen with list of achievements in the game.
+'Quests' - Quest, missions or goals screen describing things for a player to do.
+'Pause' - Pause screen.
+'Level Start' - Start of the level.
+'Level Complete' - Completion of the level
+'Turn Complete' - Finishing a turn in a game.
+'IAP Store' - The store where the player pays real money for currency or items.
+'Item Store' - The store where a player buys virtual goods.
+'Game Over' - The game over screen after a player is finished playing.
+'Leaderboard' - List of leaders in the game.
+'Settings' - Screen where player can change settings such as sound.
+'Quit' - Screen displayed right before the player exits a game.		
+*/	
+</script>
+
+<!-- static interstitial, video interstial -->
+<p><button onclick="window.chartboost.preloadInterstitialAd('Default');">preloadInterstitialAd</button></p>
+<p><button onclick="window.chartboost.showInterstitialAd('Default');">showInterstitialAd</button></p>
+<br>
+<p><button onclick="window.chartboost.preloadMoreAppsAd('Default');">preloadMoreAppsAd</button></p>
+<p><button onclick="window.chartboost.showMoreAppsAd('Default');">showMoreAppsAd</button></p>
+<br>
+<p><button onclick="window.chartboost.preloadRewardedVideoAd('Default');">preloadRewardedVideoAd</button></p>
+<p><button onclick="window.chartboost.showRewardedVideoAd('Default');">showRewardedVideoAd</button></p>
+<br>
+<p><button onclick="alert(window.chartboost.loadedInterstitialAd());">loadedInterstitialAd</button></p>
+<p><button onclick="alert(window.chartboost.loadedMoreAppsAd());">loadedMoreAppsAd</button></p>
+<p><button onclick="alert(window.chartboost.loadedRewardedVideoAd());">loadedRewardedVideoAd</button></p>
+<br>
+<p><button onclick="alert(window.chartboost.isShowingInterstitialAd());">isShowingInterstitialAd</button></p>
+<p><button onclick="alert(window.chartboost.isShowingMoreAppsAd());">isShowingdMoreAppsAd</button></p>
+<p><button onclick="alert(window.chartboost.isShowingRewardedVideoAd());">isShowingRewardedVideoAd</button></p>
+
+</body>
+</html>
